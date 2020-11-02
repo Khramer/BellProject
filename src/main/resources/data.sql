@@ -1,5 +1,5 @@
 INSERT INTO organization
-(name, fullName, inn, kpp, adress, phone, isActive)
+(name, fullName, inn, kpp, address, phone, isActive)
 VALUE
 ('Doofenshmirtz Evil', 'Doofenshmirtz Evil Inc.Corporated', 111111111111, 111111111, 'ул. Зловещая, 5, Денвил', '3(343) 123-42-99', true),
 ('Umbrella', 'Umbrella Corporation', 123456789123, 123456789, 'ул. Суздальская, 46, Москва', '8 (495) 150-03-05', true );
@@ -13,8 +13,8 @@ VALUE
 INSERT INTO user
 (officeId, firstName, position)
 VALUE
-(1, 'Сергей', 'Помощник'),
-(2, 'James ', 'Глава корпорации');
+(1, 'Сергей', 'Помощник', 'Россия'),
+(2, 'James ', 'Глава корпорации', 'United Kingdom');
 
 INSERT INTO docs
 (name, code)

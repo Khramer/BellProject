@@ -4,7 +4,7 @@ CREATE TABLE IF NOT EXISTS organization (
     fullName VARCHAR(50) NOT NULL ,
     inn INTEGER NOT NULL ,
     kpp INTEGER NOT NULL ,
-    adress VARCHAR(50) NOT NULL ,
+    address VARCHAR(50) NOT NULL ,
     phone VARCHAR(20) NOT NULL,
     isActive BOOLEAN
 );
@@ -44,3 +44,8 @@ CREATE TABLE IF NOT EXISTS countries(
     name VARCHAR(50),
     code INTEGER
 );
+
+ALTER TABLE user ADD FOREIGN KEY (citizenshipCode) REFERENCES countries(code);
+ALTER TABLE user ADD FOREIGN KEY (docCode) REFERENCES docs(code) ;
+ALTER TABLE office ADD FOREIGN KEY (orgid) REFERENCES organization(id);
+ALTER TABLE user ADD FOREIGN KEY (officeId) REFERENCES office(id);
