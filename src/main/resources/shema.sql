@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS Office (
 
 COMMENT ON TABLE Office IS 'Офис';
 
-CREATE INDEX Office_organization_id ON Office (org_id);
+CREATE INDEX IX_Office_organization_id ON Office (org_id);
 ALTER TABLE Office ADD FOREIGN KEY (org_id) REFERENCES Organization(id);
 
 CREATE TABLE IF NOT EXISTS User (
@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS User (
 
 COMMENT ON TABLE User IS 'Работник';
 
-CREATE INDEX User_office_id ON User (office_id);
+CREATE INDEX IX_User_office_id ON User (office_id);
 ALTER TABLE User ADD FOREIGN KEY (office_id) REFERENCES Office(id);
 
 CREATE TABLE IF NOT EXISTS Docs(
@@ -55,7 +55,7 @@ CREATE TABLE IF NOT EXISTS Docs(
     version INTEGER     NOT NULL COMMENT 'Служебное поле hibernate'
 );
 
-CREATE INDEX Doc_code_Id ON User (doc_code);
+CREATE INDEX UX_Doc_code_Id ON User (doc_code);
 ALTER TABLE User ADD FOREIGN KEY (doc_code) REFERENCES Docs(code) ;
 
 CREATE TABLE IF NOT EXISTS Country(
@@ -64,5 +64,5 @@ CREATE TABLE IF NOT EXISTS Country(
     version INTEGER     NOT NULL COMMENT 'Служебное поле hibernate'
 );
 
-CREATE INDEX Citizenship_code_Id ON User (citizenship_code);
+CREATE INDEX IX_Citizenship_code_Id ON User (citizenship_code);
 ALTER TABLE User ADD FOREIGN KEY (citizenship_code) REFERENCES Country(code);
