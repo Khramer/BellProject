@@ -1,28 +1,44 @@
-INSERT INTO organization
-(name, fullName, inn, kpp, address, phone, isActive)
+INSERT INTO Organization
+(id, version, name, full_name, inn, kpp, address, phone, is_active)
 VALUE
-('Doofenshmirtz Evil', 'Doofenshmirtz Evil Inc.Corporated', 111111111111, 111111111, 'ул. Зловещая, 5, Денвил', '3(343) 123-42-99', true),
-('Umbrella', 'Umbrella Corporation', 123456789123, 123456789, 'ул. Суздальская, 46, Москва', '8 (495) 150-03-05', true );
 
-INSERT INTO office
-(orgid, name, address)
-VALUE
-(1, 'Фабрика', 'ул. Зловещая, 5, Денвил'),
-(2, 'Лаборатория', 'ул. Суздальская, 46, Москва');
+(1, 0, 'Doofenshmirtz Evil', 'Doofenshmirtz Evil Inc.Corporated', 111111111111, 111111111, 'ул. Зловещая, 5, Денвил', '3(343) 123-42-99', True),
+(2, 0, 'Umbrella', 'Umbrella Corporation', 123456789123, 123456789, 'ул. Суздальская, 46, Москва', '8 (495) 150-03-05', True),
+(3, 0, 'ООО МояОборона', 7802263053, 780201001, 'ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ "МОЯ ОБОРОНА"','г. Санкт-Петербург, ул. Рашетова, д. 6 литера А пом. 12Н', True);
 
-INSERT INTO user
-(officeId, firstName, position)
+INSERT INTO Office
+(id, version, name, address, phone, is_active, org_id)
 VALUE
-(1, 'Сергей', 'Помощник', 'Россия'),
+(1, 0, 'Фабрика', 'ул. Зловещая, 5, г. Денвил', '8-888-111-22-33', True, 1),
+(2, 0, 'Фабрика', 'ул. Страшная, 6, г. Денвил', '8-888-222-22-33', True, 1),
+(3, 0, 'Лаборатория', 'ул. Суздальская, 46, г. Москва', '8-333-234-65-55', True, 2),
+(4, 0, 'Центральный офис', 'ул. Рабочая, 11, г. Ногинск', '8-333-907-43-55', True, 2),
+(5, 0, 'Центральный офис', 'г. Санкт-Петербург, ул. Рашетова, д. 6 литера А пом. 12Н', '8-343-677-33-54', True, 3),
+(6, 0, 'Дирекция', 'ул. Карла Маркса, 33, г. Москва', '8-643-008-41-45', True, 3);
+
+INSERT INTO User
+(id, version, first_name, middle_name, last_name, position, phone, address, is_identified, office_id, doc_code, citizenship_code)
+VALUE
+(1, 0,  'Сергей', ,'Сергеевич', 'Прохоров', 'Помощник', '22-22-22', 'г. Москва, ул. Рабочая, 1', True, 1, -, -),
 (2, 'James ', 'Глава корпорации', 'United Kingdom');
 
-INSERT INTO docs
+INSERT INTO Docs
 (name, code)
 VALUE
 (Паспорт, 1);
 
-INSERT INTO countries
-(name, code)
+INSERT INTO Country
+(code, name , version)
 VALUE
-('Россия', 1),
-('United Kingdom', 2);
+(895, 'Абхазияб', 0),
+(032, 'Аргентина', 0),
+(112, 'Белоруссия', 0),
+(100, 'Болгария', 0),
+(704, 'Вьетнам', 0),
+(276, 'Германия', 0),
+(356, 'Индия', 0),
+(539, 'Ирландия', 0),
+(408, 'КНДР', 0),
+(498, 'Молдавия', 0),
+(578, 'Норвегия', 0),
+
